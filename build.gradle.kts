@@ -16,6 +16,8 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
     implementation("no.tornado:tornadofx:1.7.20")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
 }
 
 javafx {
