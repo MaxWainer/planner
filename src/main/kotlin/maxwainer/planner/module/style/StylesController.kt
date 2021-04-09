@@ -1,4 +1,4 @@
-package maxwainer.planner.style
+package maxwainer.planner.module.style
 
 import javafx.scene.text.FontWeight
 import tornadofx.Stylesheet
