@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import org.jetbrains.annotations.NotNull;
 
 public final class Pair<F, S> {
+
   private @NotNull F first;
   private @NotNull S second;
 
@@ -16,12 +17,12 @@ public final class Pair<F, S> {
     return first;
   }
 
-  public @NotNull S getSecond() {
-    return second;
-  }
-
   public void setFirst(@NotNull F first) {
     this.first = first;
+  }
+
+  public @NotNull S getSecond() {
+    return second;
   }
 
   public void setSecond(@NotNull S second) {

@@ -7,6 +7,7 @@ import org.jetbrains.annotations.Nullable;
 
 public interface DataWriter extends Writer<Column> {
 
-  void write(@NotNull DataType type, @NotNull String name, @Nullable Object object, boolean isNullable);
+  void write(@NotNull DataType type, @NotNull String name, @Nullable Object object,
+      boolean isNullable);
 
 }

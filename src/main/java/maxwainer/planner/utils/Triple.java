@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import org.jetbrains.annotations.NotNull;
 
 public final class Triple<F, S, T> {
+
   private @NotNull F first;
   private @NotNull S second;
   private @NotNull T third;
@@ -18,20 +19,20 @@ public final class Triple<F, S, T> {
     return first;
   }
 
-  public @NotNull S getSecond() {
-    return second;
-  }
-
-  public @NotNull T getThird() {
-    return third;
-  }
-
   public void setFirst(@NotNull F first) {
     this.first = first;
   }
 
+  public @NotNull S getSecond() {
+    return second;
+  }
+
   public void setSecond(@NotNull S second) {
     this.second = second;
+  }
+
+  public @NotNull T getThird() {
+    return third;
   }
 
   public void setThird(@NotNull T third) {
