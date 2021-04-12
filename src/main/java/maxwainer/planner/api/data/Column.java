@@ -1,6 +1,9 @@
 package maxwainer.planner.api.data;
 
-public interface Column {
+import maxwainer.planner.api.utils.BComparable;
+import maxwainer.planner.api.utils.PCloneable;
+
+public interface Column extends BComparable<Column>, PCloneable<Column> {
 
   Object getObject();
 

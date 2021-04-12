@@ -1,0 +1,4 @@
+#button {
+  -fx-background-image: url("smooth.jpg");
+  -fx-background-size: 120 120;
+}

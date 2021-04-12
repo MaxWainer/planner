@@ -1,21 +1,18 @@
 package maxwainer.planner;
 
-import static maxwainer.planner.utils.fx.AlertUtils.error;
-import static maxwainer.planner.utils.fx.AlertUtils.info;
-import static maxwainer.planner.utils.fx.ButtonUtils.button;
-import static maxwainer.planner.utils.fx.ControlUtils.passwordField;
-
-import com.google.common.util.concurrent.Atomics;
 import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicReference;
 import javafx.application.Application;
-import javafx.scene.AccessibleAttribute;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import maxwainer.planner.utils.fx.AlertBuilder;
+import maxwainer.planner.utils.fx.ButtonBuilder;
+import maxwainer.planner.utils.fx.ControlBuilder;
 
 public final class PlannerApplication extends Application {
 
@@ -42,28 +39,38 @@ public final class PlannerApplication extends Application {
     VBox vbox = new VBox(20);
     Scene scene = new Scene(vbox, 100, 100);
 
-    scene.setFill(Color.PAPAYAWHIP);
-
     stage.setScene(scene);
 
     startDatePicker.setValue(LocalDate.now());
     endDatePicker.setValue(startDatePicker.getValue().plusDays(1));
 
-    AtomicReference<String> enteredPassword = new AtomicReference<>();
+    AtomicReference<Object> enteredPassword = new AtomicReference<>();
     vbox.getChildren().add(new Label("Enter an example password:"));
-    vbox.getChildren().add(passwordField(passwordField -> {
-      passwordField.setOnAction(event -> {
 
-      });
-      return passwordField;
-    }));
-    vbox.getChildren().add(button("Get password", button -> {
-      button.setOnMouseClicked(click -> {
-          info("Entered password: " + enteredPassword, alert -> alert).showAndWait();
+    vbox.getChildren().add(
+        ButtonBuilder.builder()
+            .named("Click on me!")
+            .action(e -> {
+              AlertBuilder.builder()
+                  .header("Alert header")
+                  .title("Alert title!")
+                  .description(
+                      "First line",
+                      "Second line",
+                      "Third line"
+                  )
+                  .type(AlertType.ERROR)
+                  .show();
+            })
+            .build()
+    );
 
-      });
-      return button;
-    }));
+    ControlBuilder.builder(new PasswordField())
+        .supply(field -> {
+
+
+          return field;
+        }).build();
 
     stage.show();
   }
